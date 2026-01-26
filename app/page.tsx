@@ -52,7 +52,7 @@ export default function Home() {
                   src="/images/profil.png"
                   alt="Ali Naci Tüysüz"
                   fill
-                  className="rounded-full object-cover border-4 border-white/20 shadow-2xl"
+                  className="rounded-full object-cover object-[center_20%] border-4 border-white/20 shadow-2xl"
                   priority
                 />
               </div>
