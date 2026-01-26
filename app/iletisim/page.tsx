@@ -86,12 +86,10 @@ export default function Iletisim() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form gönderildi, data:", formData);
     setStatus("loading");
     setErrorMessage("");
 
     try {
-      console.log("API çağrısı yapılıyor...");
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -100,21 +98,16 @@ export default function Iletisim() {
         body: JSON.stringify(formData),
       });
 
-      console.log("Response status:", response.status);
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (response.ok) {
-        console.log("Başarılı! Status success'e geçiyor");
         setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        console.log("Hata var, status error'a geçiyor");
         setStatus("error");
         setErrorMessage(data.error || "Bir hata oluştu.");
       }
     } catch (error) {
-      console.error("Catch bloğuna düştü:", error);
       setStatus("error");
       setErrorMessage("Bağlantı hatası. Lütfen tekrar deneyin.");
     }
@@ -232,11 +225,6 @@ export default function Iletisim() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-none"
                     placeholder="Mesajınızı buraya yazın..."
                   ></textarea>
-                </div>
-
-                {/* Debug Info - Geçici */}
-                <div className="text-xs text-gray-500 p-2 bg-gray-100 rounded">
-                  Debug: Status = {status}
                 </div>
 
                 {/* Status Messages */}
