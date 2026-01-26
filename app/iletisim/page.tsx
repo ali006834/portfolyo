@@ -1,9 +1,6 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "İletişim | Ali Naci Tüysüz",
-  description: "Ali Naci Tüysüz ile iletişime geçin",
-};
+import { useState } from "react";
 
 // İletişim bilgileri
 const contactInfo = [
@@ -71,6 +68,58 @@ const contactInfo = [
 ];
 
 export default function Iletisim() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form gönderildi, data:", formData);
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      console.log("API çağrısı yapılıyor...");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log("Response status:", response.status);
+      const data = await response.json();
+      console.log("Response data:", data);
+
+      if (response.ok) {
+        console.log("Başarılı! Status success'e geçiyor");
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        console.log("Hata var, status error'a geçiyor");
+        setStatus("error");
+        setErrorMessage(data.error || "Bir hata oluştu.");
+      }
+    } catch (error) {
+      console.error("Catch bloğuna düştü:", error);
+      setStatus("error");
+      setErrorMessage("Bağlantı hatası. Lütfen tekrar deneyin.");
+    }
+  };
+
   return (
     <div className="py-12">
       <div className="mx-auto max-w-5xl px-4">
@@ -119,11 +168,11 @@ export default function Iletisim() {
             </div>
           </div>
 
-          {/* Mesaj Formu Placeholder */}
+          {/* Mesaj Formu */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Mesaj Gönderin</h2>
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     İsim
@@ -132,6 +181,9 @@ export default function Iletisim() {
                     type="text"
                     id="name"
                     name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                     placeholder="Adınız Soyadınız"
                   />
@@ -144,6 +196,9 @@ export default function Iletisim() {
                     type="email"
                     id="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                     placeholder="ornek@email.com"
                   />
@@ -156,6 +211,9 @@ export default function Iletisim() {
                     type="text"
                     id="subject"
                     name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
                     placeholder="Mesajınızın konusu"
                   />
@@ -168,20 +226,39 @@ export default function Iletisim() {
                     id="message"
                     name="message"
                     rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-none"
                     placeholder="Mesajınızı buraya yazın..."
                   ></textarea>
                 </div>
+
+                {/* Debug Info - Geçici */}
+                <div className="text-xs text-gray-500 p-2 bg-gray-100 rounded">
+                  Debug: Status = {status}
+                </div>
+
+                {/* Status Messages */}
+                {status === "success" && (
+                  <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                    Mesajınız başarıyla gönderildi!
+                  </div>
+                )}
+                {status === "error" && (
+                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                    {errorMessage}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  disabled={status === "loading"}
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
                 >
-                  Mesaj Gönder
+                  {status === "loading" ? "Gönderiliyor..." : "Mesaj Gönder"}
                 </button>
               </form>
-              <p className="text-sm text-gray-500 mt-4 text-center">
-                * Form şu an görsel amaçlıdır. Doğrudan e-posta ile ulaşabilirsiniz.
-              </p>
             </div>
           </div>
         </div>
