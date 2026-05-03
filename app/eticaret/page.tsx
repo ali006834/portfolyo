@@ -266,7 +266,7 @@ export default function Eticaret() {
       </section>
 
       {/* Platform Bölümleri */}
-      <div className="mx-auto max-w-5xl px-4 py-16 space-y-20">
+      <div className="mx-auto max-w-5xl px-4 py-10 md:py-16 space-y-16 md:space-y-20">
         {platforms.map((platform, idx) => (
           <section key={platform.id} id={platform.id}>
 
@@ -294,7 +294,7 @@ export default function Eticaret() {
               <div className="lg:col-span-2 space-y-5">
 
                 {/* Yapılanlar */}
-                <div className={`${platform.color.light} border ${platform.color.border} rounded-2xl p-6`}>
+                <div className={`${platform.color.light} border ${platform.color.border} rounded-2xl p-4 md:p-6`}>
                   <h3 className={`font-bold ${platform.color.accent} mb-4 text-xs uppercase tracking-widest`}>
                     Yapılanlar
                   </h3>

@@ -258,7 +258,7 @@ export default function Deneyim() {
                 <div className={`bg-white rounded-2xl shadow-sm overflow-hidden border-2 ${exp.current ? "border-blue-200" : "border-gray-100"}`}>
 
                   {/* Kart başlığı */}
-                  <div className={`bg-gradient-to-r ${exp.color.header} px-8 pt-7 pb-6 border-b border-gray-100`}>
+                  <div className={`bg-gradient-to-r ${exp.color.header} px-5 md:px-8 pt-6 pb-5 border-b border-gray-100`}>
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className={`${exp.color.typeBadge} px-3 py-1 rounded-full text-xs font-semibold`}>
                         {exp.type}
@@ -281,7 +281,7 @@ export default function Deneyim() {
                   {/* Projeler */}
                   <div className="divide-y divide-gray-50">
                     {exp.projects.map((project, pIndex) => (
-                      <div key={pIndex} className="px-8 py-6">
+                      <div key={pIndex} className="px-5 md:px-8 py-5 md:py-6">
                         <div className="flex items-start gap-3 mb-4">
                           <div className={`${exp.color.iconBg} p-2 rounded-lg flex-shrink-0`}>
                             {project.icon}
@@ -295,10 +295,10 @@ export default function Deneyim() {
                         </div>
 
                         {project.description && (
-                          <p className="text-gray-600 text-sm leading-relaxed mb-4 ml-11">{project.description}</p>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4 ml-0 md:ml-11">{project.description}</p>
                         )}
 
-                        <ul className="space-y-2 mb-4 ml-11">
+                        <ul className="space-y-2 mb-4 ml-0 md:ml-11">
                           {project.bullets.map((b, i) => (
                             <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
                               <svg className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,7 +309,7 @@ export default function Deneyim() {
                           ))}
                         </ul>
 
-                        <div className="flex flex-wrap gap-1.5 ml-11">
+                        <div className="flex flex-wrap gap-1.5 ml-0 md:ml-11">
                           {project.tags.map((tag) => (
                             <span key={tag} className={`${exp.color.tag} border px-2.5 py-1 rounded-full text-xs font-medium`}>
                               {tag}

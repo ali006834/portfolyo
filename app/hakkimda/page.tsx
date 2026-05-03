@@ -113,7 +113,7 @@ export default function Hakkimda() {
         </div>
 
         {/* Profil Özeti */}
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <span className="w-2 h-6 bg-blue-600 rounded inline-block"></span>
             Profil Özeti
@@ -232,12 +232,12 @@ export default function Hakkimda() {
         </section>
 
         {/* Teknik Yetkinlikler */}
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <span className="w-2 h-6 bg-blue-600 rounded inline-block"></span>
             Teknik Yetkinlikler
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {skillCategories.map((category) => {
               const c = colorMap[category.color];
               return (
@@ -260,7 +260,7 @@ export default function Hakkimda() {
         </section>
 
         {/* İşverenler İçin Neden Ben? */}
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <span className="w-2 h-6 bg-blue-600 rounded inline-block"></span>
             Neden Ben?
@@ -297,7 +297,7 @@ export default function Hakkimda() {
         </section>
 
         {/* Eğitim */}
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
             <span className="w-2 h-6 bg-blue-600 rounded inline-block"></span>
             Eğitim
@@ -318,7 +318,7 @@ export default function Hakkimda() {
         </section>
 
         {/* Kişisel Bilgiler */}
-        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8">
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-5 flex items-center gap-2">
             <span className="w-2 h-6 bg-blue-600 rounded inline-block"></span>
             İletişim

@@ -97,7 +97,7 @@ export default function Iletisim() {
 
   return (
     <div className="py-12 bg-slate-50 min-h-screen">
-      <div className="mx-auto max-w-5xl px-4">
+      <div className="mx-auto max-w-5xl px-4 w-full">
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">İletişim</h1>

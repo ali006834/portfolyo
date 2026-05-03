@@ -96,7 +96,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto max-w-5xl px-4 relative">
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
             <div className="flex-1 text-center md:text-left">
               {/* Açık badge */}
               <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 px-4 py-1.5 rounded-full text-green-300 text-sm font-medium mb-6">
@@ -104,7 +104,7 @@ export default function Home() {
                 İş fırsatlarına açığım
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-3 tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 tracking-tight">
                 Ali Naci Tüysüz
               </h1>
 
@@ -186,7 +186,7 @@ export default function Home() {
 
             {/* Profil fotoğrafı */}
             <div className="flex-shrink-0">
-              <div className="relative w-60 h-60 md:w-72 md:h-72">
+              <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-72 md:h-72">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-violet-600 rounded-full blur-2xl opacity-30"></div>
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-violet-600 rounded-full opacity-30 blur-sm"></div>
                 <Image

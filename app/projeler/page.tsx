@@ -374,7 +374,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
         </div>
       )}
 
-      <div className="p-7">
+      <div className="p-5 md:p-7">
         {/* Badges */}
         <div className="flex items-center flex-wrap gap-2 mb-4">
           <span className={`${project.categoryColor} px-3 py-1 rounded-full text-xs font-semibold`}>
@@ -411,7 +411,7 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
         {project.features.length > 0 && (
           <div className="mb-5">
             <h3 className="font-semibold text-gray-800 mb-3 text-xs uppercase tracking-widest">Özellikler</h3>
-            <ul className="grid md:grid-cols-2 gap-1.5">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
               {project.features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-2 text-gray-600 text-sm">
                   <svg className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
