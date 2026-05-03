@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPosts } from "./lib/posts";
 
 const skills = [
   {
@@ -85,8 +84,6 @@ const stats = [
 ];
 
 export default function Home() {
-  const posts = getAllPosts().slice(0, 3);
-
   return (
     <div>
       {/* ── Hero ── */}
@@ -353,38 +350,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── Blog Yazıları ── */}
-      {posts.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="mx-auto max-w-5xl px-4">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900">Son Yazılar</h2>
-              <Link href="/blog" className="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1">
-                Tümünü Gör
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {posts.map((post) => (
-                <article key={post.slug} className="bg-slate-50 rounded-xl p-6 hover:shadow-md transition-shadow border border-gray-100">
-                  <div className="text-xs text-gray-400 mb-2">
-                    {new Date(post.date).toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" })}
-                  </div>
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-base font-semibold text-gray-900 hover:text-blue-600 mb-2 leading-snug">
-                      {post.title}
-                    </h3>
-                  </Link>
-                  <p className="text-gray-500 text-sm leading-relaxed">{post.excerpt}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── CTA ── */}
       <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white relative overflow-hidden">

@@ -19,7 +19,6 @@ const navLinks = [
   { href: "/projeler", label: "Projeler" },
   { href: "/eticaret", label: "E-Ticaret" },
   { href: "/deneyim", label: "Deneyim" },
-  { href: "/blog", label: "Blog" },
   { href: "/iletisim", label: "İletişim" },
 ];
 
