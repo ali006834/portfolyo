@@ -193,10 +193,10 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-violet-600 rounded-full blur-2xl opacity-30"></div>
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-violet-600 rounded-full opacity-30 blur-sm"></div>
                 <Image
-                  src="/images/profil.png"
+                  src="/images/profil.jpg"
                   alt="Ali Naci Tüysüz"
                   fill
-                  className="rounded-full object-cover object-[center_20%] border-2 border-white/20 shadow-2xl relative z-10"
+                  className="rounded-full object-cover object-[center_15%] border-2 border-white/20 shadow-2xl relative z-10"
                   priority
                 />
               </div>
