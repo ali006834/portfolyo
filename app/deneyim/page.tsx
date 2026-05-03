@@ -36,11 +36,6 @@ const IconBolt = () => (
   </svg>
 );
 
-const IconSearch = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-  </svg>
-);
 
 const IconCpu = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,20 +132,6 @@ const experiences: Experience[] = [
           "Monorepo: Express REST API · Next.js Admin Panel · Expo React Native",
         ],
         tags: ["Node.js", "Express.js", "Next.js 16", "React Native (Expo)", "PostgreSQL", "Prisma ORM", "Shopify API", "PDFKit", "Docker"],
-      },
-      {
-        title: "SEO & Dijital Pazarlama Chrome Uzantı Seti",
-        subtitle: "4 Ayrı Chrome/Edge Uzantısı",
-        icon: <IconSearch />,
-        description:
-          "SEO uzmanları ve dijital pazarlamacılar için Google SERP analizi, rakip içerik tarama ve Meta reklam indirme işlemlerini otomatize eden 4 ayrı Chrome/Edge uzantısı.",
-        bullets: [
-          "SearchLens Pro: SERP sonuçlarını arka planda fetch eder, anahtar kelimeye göre filtreler",
-          "Meta Ads Downloader: reklam kütüphanesini tarar, görselleri/videoları ZIP olarak indirir",
-          "SEO Radar: 15+ sinyal ile rakip analizi — 0-100 SEO puanı ve otorite skoru",
-          "SERP Filter: gerçek zamanlı filtreleme, sayfa yenilemede korunan filtre hafızası",
-        ],
-        tags: ["Vanilla JS", "Chrome Manifest V3", "Content Script", "Service Worker"],
       },
     ],
   },
